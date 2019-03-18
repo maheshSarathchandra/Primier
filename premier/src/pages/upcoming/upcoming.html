@@ -1,0 +1,78 @@
+<!--
+  Generated template for the UpcomingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>upcoming</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg">
+
+  <form #form="ngForm" (ngSubmit)="addBook(form.value)" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>bookName</ion-label>
+        <ion-input type="text" name="name" ngModel required #name="ngModel"
+                   [class.invalid]="name.errors && name.dirty"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="name.errors?.required && name.dirty">
+        Name is required
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>bookPrice</ion-label>
+        <ion-input type="text" name="bookPrice" ngModel required #bookPrice="ngModel"
+                   [class.invalid]="bookPrice.errors && bookPrice.dirty"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="bookPrice.errors?.required && bookPrice.dirty">
+        bookPrice is required
+      </ion-item>
+
+      <!--<ion-item class="error-message" *ngIf="bookPrice.errors?.bookPrice && bookPrice.dirty">
+        Email is not valid
+      </ion-item>-->
+
+      <ion-item>
+        <ion-label floating>picture</ion-label>
+        <ion-input type="text" name="picture" ngModel required #picture="ngModel"
+                   [class.invalid]="picture.errors && picture.dirty"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="picture.errors?.required && picture.dirty">
+        picture is required
+      </ion-item>
+     <!-- <ion-item class="error-message" *ngIf="username.errors?.usernameTaken">
+        Username already taken
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label floating>auther</ion-label>
+        <ion-input type="text" name="auther" ngModel required #auther="ngModel"
+                   [class.invalid]="auther.errors && auther.dirty"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="auther.errors?.required && auther.dirty">
+        auther is required
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>translator</ion-label>
+        <ion-input type="text" name="translator" ngModel required #translator="ngModel"
+                   [class.invalid]="translator.errors && translator.dirty"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="translator.errors?.required && translator.dirty">
+        translator is required
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block type="submit" [disabled]="!form.valid">Upload book</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>
